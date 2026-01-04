@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Upload to S3') {
       steps {
-        withAWS(credentials: 'aws-s3-creds', region: 'us-east-1') {
+        withAWS(credentials: 'github-token', region: 'us-east-1') {
           s3Upload(bucket: 'githubs32026', includePathPattern: '**/*')
         }
       }
